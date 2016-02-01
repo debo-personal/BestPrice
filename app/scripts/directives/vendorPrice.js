@@ -2,7 +2,7 @@
 
 angular.module('priceComparatorApp')
 	.directive('vendorPrice' , function() {
-		return {
+		return { 
 			templateUrl: 'views/vendorPrice.html'
 		};
 	});
