@@ -1,0 +1,38 @@
+.productStores {
+  list-style: none;
+}
+.searchRow .input-group {
+  float: left;
+}
+.searchRow .form-control,.searchRow .btn {
+  border-radius: 0 !important;
+}
+#txtCategorySearch {
+  border-right:0;
+}
+.productStores .store {
+  border: 1px solid grey;
+  height: 270px;
+  padding: 10px;
+}
+.store .productRow {
+  height: 100%;
+}
+.store .productImage {
+  max-height: 250px;
+  margin: auto;
+}
+.inline-col {
+  float: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+.center-align {
+  text-align: center;
+}
+.productSite {
+  background-color: #e7e7e7;
+}
+.loader {
+  text-align: center;
+}
