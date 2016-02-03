@@ -10,16 +10,20 @@
 #txtCategorySearch {
   border-right:0;
 }
-.productStores .store {
-  border: 1px solid grey;
-  height: 270px;
-  padding: 10px;
+.productStores {
+  padding: 0;
 }
-.store .productRow {
+.productStores .store {
+  border: 1px solid #e7e7e7;
+  height: 200px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.store .productRow,.imgContainer {
   height: 100%;
 }
 .store .productImage {
-  max-height: 250px;
+  max-height: 180px;
   margin: auto;
 }
 .inline-col {
@@ -35,4 +39,14 @@
 }
 .loader {
   text-align: center;
+}
+.filterWrapper {
+  padding: 10px;
+  border: 1px solid #e7e7e7;
+}
+.resultWrapper {
+  margin-top: 15px;
+}
+.ui-autocomplete {
+  z-index: 2; /* It should be more than any element inside resultWrapper */
 }

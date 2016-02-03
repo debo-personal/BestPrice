@@ -9,26 +9,30 @@
       </span>
   </div>
 </div>
-<div class="loader" data-ng-show="loading">
-  <img src="images/loader.gif">
-</div>
-<div class="row" data-ng-show="storesAvailable" data-ng-hide="loading">
-  <div class="col-xs-12">
-    <ul class="productStores">
-      <li data-ng-repeat="store in stores" class="store">
-        <div class="row productRow">
-          <div class="col-xs-12 col-sm-4 inline-col center-align">
-            <img data-ng-src="{{store.image}}" class="img-responsive productImage">
-          </div><div vendor-price class="col-xs-6 col-sm-4 priceAndVendor inline-col center-align">
-            
-          </div><div class="col-xs-6 col-sm-4 inline-col center-align">
-            <a data-ng-href="{{store.url}}" target="blank"><span class="btn productSite">Go To Site</span></a>
-          </div>
-        </div>
-      </li>
-    </ul>
+<div class="resultWrapper">
+  <div class="loader" data-ng-show="loading">
+    <img src="images/loader.gif">
   </div>
-</div>
-<div class="notification" data-ng-show="showStatus">
-  No Product Found for this search, please refine your search.
-</div>
+  <div class="row" data-ng-show="storesAvailable">
+    <div class="col-xs-3">
+      <data-product-filter></data-product-filter>
+    </div>
+    <div class="col-xs-9">
+      <ul class="productStores">
+        <li data-ng-repeat="store in stores | filter:searchVendor" class="store">
+          <div class="row productRow">
+            <div class="col-xs-12 col-sm-4 inline-col center-align imgContainer">
+              <img data-ng-src="{{store.image}}" class="img-responsive productImage">
+            </div><data-vendor-price class="col-xs-6 col-sm-4 priceAndVendor inline-col center-align">
+            </data-vendor-price><div class="col-xs-6 col-sm-4 inline-col center-align">
+              <a data-ng-href="{{store.url}}" target="blank"><span class="btn productSite">Go To Store</span></a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="notification" data-ng-show="showStatus">
+    No Product Found for this search, please refine your search.
+  </div>
+<div>
