@@ -8,15 +8,15 @@
  * Controller of the priceComparatorApp
  */
 angular.module('priceComparatorApp')
-  .controller('MainCtrl', function ($scope , $http) {
+  .controller('MainCtrl', function ($scope , $http , $location ) {
   	var oThis 		  = this
   	    ,categoryList = []
   	;
 
   	this.init = function() {
   		if( !categoryList.length ) {
-  			var catFeedUrl = 'http://api.pricecheckindia.com/feed/product/categories.json?callback=JSON_CALLBACK';
-  			$http({method:'jsonp' , url: catFeedUrl })
+  			var catFeedUrl = 'data/categories.json';
+  			$http({method:'GET' , url: catFeedUrl })
 	  		.success( function( data ){
 	  			categoryList = data.supported_categories;
 	  			oThis.categoryAutoComplete( categoryList );
@@ -59,8 +59,13 @@ angular.module('priceComparatorApp')
   			for (var i = 0; i < prodsLen; i++) {
   				storesLen = storeList.push.apply( storeList , products.product[i].stores );
   			};
+        storeList              = oThis.asignStoreImages( storeList );
   		}
-      storeList              = oThis.asignStoreImages( storeList );
+      else {
+        $location.url( "/main?q=1" );
+        $location.search({"a":"b"});
+      }
+      
   		$scope.stores 		     = storeList;
   		$scope.storesAvailable = storesLen || false;
   		$scope.loading         = false;
